@@ -1,5 +1,7 @@
 # track-shipment
 
+Note: Added postman collection file https://github.com/satishke0286/track-shipment/blob/main/Tracking%20API.postman_collection.json
+
 Add **aftership-api-key** to Headers
 
 ## 1. POST API  
