@@ -2,7 +2,7 @@
 
 Add **aftership-api-key** to Headers
 
-## 1. Shipment Details POST API  
+## 1. POST API  
 URL: http://localhost:8080/tracking
 
 ###### Request body: 
@@ -17,7 +17,7 @@ URL: http://localhost:8080/tracking
  
  Otherwise, aftership post API will be called to store shipment details. If the response is a success from API, then the request will be store in h2database also for future checks else an exception will be thrown.
  
- ## 2. Shipment Details GET API  
+ ## 2. GET API  
 URL: http://localhost:8080/tracking/{trackingNumber}/{courierCode}
 
 ###### Response body: 
