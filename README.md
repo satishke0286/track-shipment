@@ -22,10 +22,12 @@ URL: http://localhost:8080/tracking/{trackingNumber}/{courierCode}
 
 ###### Response body: 
  {
+   "id": "5ca2c65c-f83e-4298-b790-70e8fb69394c"
    "origin": "990 S Hwy 395 S, Hermiston, OR, USA 97838",
    "destination" : "3505 Factoria Blvd SE, Bellevue, WA, USA 98006",
    "trackingNumber": "9374889676091297266845",
-   "courierCode" : "USPS"
+   "courierCode" : "USPS",
+   "currentStatus": "Delivered"
  } 
  
  API takes trackingNumber and courierCode as inputs and validates them. Both are mandatory. After validating them, checks whether the record exists in h2database with the given combination. If the data doesn't exist in h2database, "Tracking not found" exception will thrown.
