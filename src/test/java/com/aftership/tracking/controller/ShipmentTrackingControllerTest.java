@@ -3,7 +3,9 @@ package com.aftership.tracking.controller;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.mockito.Matchers.any;
+import static org.mockito.Matchers.anyString;
 import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -42,6 +44,19 @@ public class ShipmentTrackingControllerTest {
         when(shipmentService.createTracking(any(ShipmentModel.class))).thenReturn(shipmentModel);
 
         MvcResult result = mockMvc.perform(post("/tracking", any(ShipmentModel.class))
+                .contentType(MediaType.APPLICATION_JSON).content(convertObjectToString(shipmentModel)))
+                .andExpect(status().isOk())
+                .andReturn();
+        assertNotNull(result.getResponse().getContentAsString());
+        assertEquals(200, result.getResponse().getStatus());
+    }
+
+    @Test
+    public void get_shipmentTracking() throws Exception {
+        ShipmentModel shipmentModel = getShipmentModel();
+        when(shipmentService.getTracking(anyString(), anyString())).thenReturn(shipmentModel);
+
+        MvcResult result = mockMvc.perform(get("/tracking/{tracking}/{courier}", "7386102987737","FedEx")
                 .contentType(MediaType.APPLICATION_JSON).content(convertObjectToString(shipmentModel)))
                 .andExpect(status().isOk())
                 .andReturn();
