@@ -13,6 +13,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.util.ReflectionTestUtils;
+import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
@@ -54,6 +55,17 @@ public class RestApiClientTest {
                 Mockito.any(HttpEntity.class),
                 Mockito.any(ParameterizedTypeReference.class)
         );
+    }
+
+    @Test(expected = ShipmentTrackingException.class)
+    public void makePostRestCall_HttpClientErrorException() {
+        Mockito.when(restTemplate.exchange(
+                Mockito.any(String.class),
+                Mockito.any(HttpMethod.class),
+                Mockito.any(HttpEntity.class),
+                Mockito.any(ParameterizedTypeReference.class)
+        )).thenThrow(new HttpClientErrorException(HttpStatus.INTERNAL_SERVER_ERROR));
+        restApiClient.makePostRestCall(new NewTrackingRequest());
     }
 
     @Test(expected = ShipmentTrackingException.class)
