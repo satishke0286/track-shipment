@@ -1,0 +1,86 @@
+{
+	"info": {
+		"_postman_id": "d10fb243-cea1-4ff5-afdb-d7c22d90d65d",
+		"name": "AfterShip Tracking API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Post API With Invalid Payload - Without tracking number",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"origin\": \"990 S Hwy 395 S, Hermiston, OR 97838\",\r\n\"destination\" : \"3505 Factoria Blvd SE, Bellevue, WA 98006\",\r\n\"trackingNumber\": \"12345665433\",\r\n\"courierCode\" : \"USPS0\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/tracking",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tracking"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post API With valid Payload",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"origin\": \"990 S Hwy 395 S, Hermiston, OR, USA 97838\",\r\n\"destination\" : \"3505 Factoria Blvd SE, Bellevue, WA, USA 98006\",\r\n\"trackingNumber\": \"9374889676091297266845\",\r\n\"courierCode\" : \"USPS\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/tracking",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tracking"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get API ",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/tracking/9374889676091297266845/USPS",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tracking",
+						"9374889676091297266845",
+						"USPS"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
