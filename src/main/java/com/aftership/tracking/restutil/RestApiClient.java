@@ -8,6 +8,7 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
@@ -28,14 +29,16 @@ public class RestApiClient {
     @Value("${aftership-api-url}")
     private String apiServiceUrl;
 
-    public void makePostRestCall(Object payload) {
+    public <T> ResponseEntity<T> makePostRestCall(Object payload, Class<T> responseTypeClass) {
         logger.debug("Calling aftership post api to create tracking");
+        ResponseEntity<T> responseEntity = null;
         try {
             HttpHeaders headers = new HttpHeaders();
             headers.setContentType(MediaType.APPLICATION_JSON);
             headers.set("aftership-api-key", apiKey);
             HttpEntity httpEntity = new HttpEntity(payload, headers);
-            restTemplate.exchange(apiServiceUrl+"/trackings", HttpMethod.POST, httpEntity, Void.class);
+            responseEntity = restTemplate.exchange(apiServiceUrl+"/trackings", HttpMethod.POST, httpEntity, responseTypeClass);
+            return responseEntity;
         } catch (RestClientException restClientException) {
             logger.error("Exception occurred while making REST call for URL: {}", apiServiceUrl);
             throw new ShipmentTrackingException("Exception occurred while making REST call for URL: " + restClientException.getMessage());

@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.aftership.tracking.entity.ShipmentDetails;
 import com.aftership.tracking.enums.CourierCodeEnum;
 import com.aftership.tracking.exception.ShipmentTrackingException;
+import com.aftership.tracking.model.AftershipResponse;
 import com.aftership.tracking.model.NewTracking;
 import com.aftership.tracking.model.NewTrackingRequest;
 import com.aftership.tracking.model.ShipmentModel;
@@ -46,7 +47,7 @@ public class ShipmentServiceImpl implements ShipmentService {
     public ShipmentModel createTracking(ShipmentModel requestModel) {
         logger.debug("In ShipmentServiceImpl :: called createTracking method for tracking id : {} and courier code : {} ", requestModel.getTrackingNumber(), requestModel.getCourierCode());
         validateShipmentModel(requestModel);
-        restApiClient.makePostRestCall(new NewTrackingRequest(transformToNewTracking(requestModel)));
+        restApiClient.makePostRestCall(new NewTrackingRequest(transformToNewTracking(requestModel)), AftershipResponse.class);
         ShipmentDetails entity = shipmentDetailsRepository.save(buildShipmentDetails(requestModel));
         requestModel.setId(entity.getId());
         logger.debug("Successfully created for tracking id : {} and courier code : {} ", requestModel.getTrackingNumber(), requestModel.getCourierCode());

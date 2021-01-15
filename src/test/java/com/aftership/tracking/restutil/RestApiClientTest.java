@@ -16,6 +16,7 @@ import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
 import com.aftership.tracking.exception.ShipmentTrackingException;
+import com.aftership.tracking.model.AftershipResponse;
 import com.aftership.tracking.model.NewTrackingRequest;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -42,7 +43,7 @@ public class RestApiClientTest {
                 Matchers.any(),
                 Matchers.<Class<Void>>any())
         ).thenReturn(myEntity);
-        restApiClient.makePostRestCall(new NewTrackingRequest());
+        restApiClient.makePostRestCall(new NewTrackingRequest(), AftershipResponse.class);
         Mockito.verify(restTemplate).exchange( Matchers.anyString(),
                 Matchers.any(HttpMethod.class),
                 Matchers.any(),
@@ -57,7 +58,7 @@ public class RestApiClientTest {
                 Matchers.any(),
                 Matchers.<Class<Void>>any())
         ).thenThrow(new RestClientException("Error"));
-        restApiClient.makePostRestCall(new NewTrackingRequest());
+        restApiClient.makePostRestCall(new NewTrackingRequest(), AftershipResponse.class);
     }
 
 }

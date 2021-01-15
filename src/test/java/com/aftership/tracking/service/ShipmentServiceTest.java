@@ -13,6 +13,8 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 
 import com.aftership.tracking.entity.ShipmentDetails;
 import com.aftership.tracking.exception.ShipmentTrackingException;
@@ -80,7 +82,8 @@ public class ShipmentServiceTest {
     @Test
     public void create_tracking() {
         when(shipmentDetailsRepository.existsByTrackingNumberAndCourierCode(anyString(), anyString())).thenReturn(false);
-        Mockito.doNothing().when(restApiClient).makePostRestCall(any(Object.class));
+        ResponseEntity<Object> myEntity = new ResponseEntity<Object>(HttpStatus.ACCEPTED);
+        Mockito.when(restApiClient.makePostRestCall(any(Object.class), any())).thenReturn(myEntity);
         when(shipmentDetailsRepository.save(any(ShipmentDetails.class))).thenReturn(ShipmentDetails.builder().id(UUID.randomUUID().toString()).build());
         ShipmentModel result = shipmentService.createTracking(
                 ShipmentModel.builder()
