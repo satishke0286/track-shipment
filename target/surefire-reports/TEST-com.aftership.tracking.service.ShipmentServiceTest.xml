@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.aftership.tracking.service.ShipmentServiceTest" time="0.013" tests="11" errors="0" skipped="0" failures="0">
+<testsuite name="com.aftership.tracking.service.ShipmentServiceTest" time="0.016" tests="11" errors="0" skipped="0" failures="0">
   <properties>
     <property name="idea.version" value="2021.2.1"/>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
@@ -63,11 +63,11 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="pentium_pro+mmx pentium_pro pentium+mmx pentium i486 i386 i86"/>
   </properties>
-  <testcase name="create_tracking_destination_Null" classname="com.aftership.tracking.service.ShipmentServiceTest" time="0.012"/>
+  <testcase name="create_tracking_destination_Null" classname="com.aftership.tracking.service.ShipmentServiceTest" time="0"/>
   <testcase name="create_tracking_null_tracking_number" classname="com.aftership.tracking.service.ShipmentServiceTest" time="0"/>
   <testcase name="create_tracking_origin_Null" classname="com.aftership.tracking.service.ShipmentServiceTest" time="0"/>
   <testcase name="create_tracking_success" classname="com.aftership.tracking.service.ShipmentServiceTest" time="0"/>
-  <testcase name="getTracking_Courier_Code_Checkpoints_Success" classname="com.aftership.tracking.service.ShipmentServiceTest" time="0.001"/>
+  <testcase name="getTracking_Courier_Code_Checkpoints_Success" classname="com.aftership.tracking.service.ShipmentServiceTest" time="0.016"/>
   <testcase name="getTracking_trackingNumber_Null" classname="com.aftership.tracking.service.ShipmentServiceTest" time="0"/>
   <testcase name="create_tracking_invalid_courier_code" classname="com.aftership.tracking.service.ShipmentServiceTest" time="0"/>
   <testcase name="create_tracking_shipment_already_exists" classname="com.aftership.tracking.service.ShipmentServiceTest" time="0"/>
