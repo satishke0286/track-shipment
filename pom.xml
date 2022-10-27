@@ -127,7 +127,7 @@
             <properties>
                 <!-- Optional URL to server. Default value is http://localhost:9000 -->
                 <sonar.host.url>
-                    http://localhost:9000
+                    https://sonarcloud.io/summary/overall?id=track-shipment
                 </sonar.host.url>
                 <sonar.exclusions>
                     **/com/aftership/tracking/model/*,**/com/aftership/tracking/entity/*,**/com/aftership/tracking/transformation/*
