@@ -90,38 +90,38 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-<!--            <plugin>-->
-<!--                <groupId>org.jacoco</groupId>-->
-<!--                <artifactId>jacoco-maven-plugin</artifactId>-->
-<!--                <version>0.8.0</version>-->
-<!--                <configuration>-->
-<!--                    <outputDirectory>-->
-<!--                        ${project.reporting.outputDirectory}/jacoco-ut-->
-<!--                    </outputDirectory>-->
-<!--                    <excludes>-->
-<!--                        <exclude>**/*Test.*</exclude>-->
-<!--                        <exclude>com/aftership/tracking/model/**/*.class</exclude>-->
-<!--                        <exclude>com/aftership/tracking/entity/**/*.class</exclude>-->
-<!--                        <exclude>com/aftership/tracking/transformation/**/*.class</exclude>-->
-<!--                    </excludes>-->
-<!--                </configuration>-->
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.3</version>
+                <configuration>
+                    <outputDirectory>
+                        ${project.reporting.outputDirectory}/jacoco-ut
+                    </outputDirectory>
+                    <excludes>
+                        <exclude>**/*Test.*</exclude>
+                        <exclude>com/aftership/tracking/model/**/*.class</exclude>
+                        <exclude>com/aftership/tracking/entity/**/*.class</exclude>
+                        <exclude>com/aftership/tracking/transformation/**/*.class</exclude>
+                    </excludes>
+                </configuration>
 
-<!--                <executions>-->
-<!--                    <execution>-->
-<!--                        <id>default-prepare-agent</id>-->
-<!--                        <goals>-->
-<!--                            <goal>prepare-agent</goal>-->
-<!--                        </goals>-->
-<!--                    </execution>-->
-<!--                    <execution>-->
-<!--                        <id>default-report</id>-->
-<!--                        <phase>prepare-package</phase>-->
-<!--                        <goals>-->
-<!--                            <goal>report</goal>-->
-<!--                        </goals>-->
-<!--                    </execution>-->
-<!--                </executions>-->
-<!--            </plugin>-->
+                <executions>
+                    <execution>
+                        <id>default-prepare-agent</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>default-report</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 </project>
