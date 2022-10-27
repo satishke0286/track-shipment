@@ -1,0 +1,4 @@
+com\aftership\tracking\controller\ShipmentTrackingControllerTest.class
+com\aftership\tracking\service\ShipmentServiceTest.class
+com\aftership\tracking\restutil\RestApiClientTest.class
+com\aftership\tracking\ShipmentTrackingApplicationTest.class

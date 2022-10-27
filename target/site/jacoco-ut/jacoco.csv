@@ -1,0 +1,8 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+tracking-shipment,com.aftership.tracking,ShipmentTrackingApplication,5,7,0,0,2,2,1,2,1,2
+tracking-shipment,com.aftership.tracking.enums,CourierCodeEnum,0,56,0,0,0,7,0,4,0,4
+tracking-shipment,com.aftership.tracking.controller,ShipmentTrackingController,0,30,0,0,0,6,0,4,0,4
+tracking-shipment,com.aftership.tracking.service.impl,ShipmentServiceImpl,0,237,1,15,0,50,1,14,0,7
+tracking-shipment,com.aftership.tracking.restutil,RestApiClient.new ParameterizedTypeReference() {...},0,6,0,0,0,1,0,1,0,1
+tracking-shipment,com.aftership.tracking.restutil,RestApiClient,16,125,0,0,2,21,0,6,0,6
+tracking-shipment,com.aftership.tracking.exception,ShipmentTrackingException,0,4,0,0,0,2,0,1,0,1
